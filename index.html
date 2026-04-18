@@ -2,115 +2,116 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>GATE CSE + DA 1-Year Master Plan</title>
+<title>GATE Structured System</title>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
-    margin: 0;
-    padding: 20px;
-}
-h1, h2 {
-    color: #38bdf8;
-}
-.section {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #1e293b;
-    border-radius: 10px;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-th, td {
-    border: 1px solid #334155;
-    padding: 10px;
-    text-align: left;
-}
-th {
-    background: #334155;
-}
-.tag {
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-size: 12px;
-}
-.core { background: #22c55e; }
-.common { background: #3b82f6; }
-.da { background: #f59e0b; }
+body {font-family: Arial; background:#0f172a; color:white; padding:20px;}
+h1 {color:#38bdf8;}
+.section {background:#1e293b; padding:15px; margin:10px 0; border-radius:10px; cursor:pointer;}
+.subsection {background:#273449; padding:10px; margin:8px 0; border-radius:8px; cursor:pointer;}
+.content {display:none; margin-top:10px;}
+table {width:100%; border-collapse: collapse;}
+th, td {border:1px solid #334155; padding:6px; text-align:center;}
+th {background:#334155;}
+.progress-container {background:#334155; border-radius:10px; overflow:hidden;}
+.progress-bar {height:20px; background:#22c55e; width:0%;}
 </style>
 </head>
 
 <body>
 
-<h1>🚀 GATE CSE + DA 1-Year Master Plan</h1>
+<h1>🚀 GATE CSE + DA Execution System</h1>
 
-<div class="section">
-<h2>📌 Strategy</h2>
-<p>CSE is the priority (rank driver). DA is integrated smartly (rank booster). Topics are ordered by prerequisites and ROI.</p>
+<div class="progress-container">
+<div class="progress-bar" id="bar"></div>
 </div>
+<p id="text">0% Completed</p>
 
-<div class="section">
-<h2>🧠 Phase 1 (Months 1–3): Foundations</h2>
+<script>
+function toggle(el){
+let c=el.nextElementSibling;
+c.style.display=c.style.display==="block"?"none":"block";
+}
+
+function update(){
+let boxes=document.querySelectorAll("input");
+let checked=document.querySelectorAll("input:checked").length;
+let percent=Math.round((checked/boxes.length)*100);
+document.getElementById("bar").style.width=percent+"%";
+document.getElementById("text").innerText=percent+"% Completed";
+localStorage.setItem("data",JSON.stringify([...boxes].map(b=>b.checked)));
+}
+
+window.onload=()=>{
+let boxes=document.querySelectorAll("input");
+let saved=JSON.parse(localStorage.getItem("data"));
+if(saved){boxes.forEach((b,i)=>b.checked=saved[i]);}
+boxes.forEach(b=>b.addEventListener("change",update));
+update();
+}
+</script>
+
+<!-- PHASE 1 -->
+<div class="section" onclick="toggle(this)">📘 Phase 1: Mathematics 1</div>
+<div class="content">
+
+<div class="subsection" onclick="toggle(this)">Linear Algebra</div>
+<div class="content">
 <table>
-<tr><th>Topic</th><th>Type</th><th>Importance</th><th>Difficulty</th></tr>
-<tr><td>Basic Math (logs, sets)</td><td><span class="tag common">Common</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Logic, Relations</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Permutations & Combinations</td><td><span class="tag common">Common</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>Probability (basic)</td><td><span class="tag common">Common</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>Matrices & Vectors</td><td><span class="tag common">Common</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>C Programming Basics</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
+<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Matrices</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Eigenvalues & Eigenvectors</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Rank of Matrix</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>System of Linear Equations</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
 </table>
 </div>
 
-<div class="section">
-<h2>⚙️ Phase 2 (Months 4–6): Data Structures</h2>
+<div class="subsection" onclick="toggle(this)">Probability</div>
+<div class="content">
 <table>
-<tr><th>Topic</th><th>Type</th><th>Importance</th><th>Difficulty</th></tr>
-<tr><td>Arrays, Strings</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Linked Lists</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Stacks, Queues</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Trees (BST, Heap)</td><td><span class="tag core">CSE</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>Hashing</td><td><span class="tag core">CSE</span></td><td>Medium</td><td>Moderate</td></tr>
+<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Basic Probability</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Conditional Probability</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Bayes Theorem</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Random Variables</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
 </table>
 </div>
 
-<div class="section">
-<h2>🔥 Phase 3 (Months 7–9): Algorithms + ML Base</h2>
+</div>
+
+<!-- PHASE 2 -->
+<div class="section" onclick="toggle(this)">💻 Phase 2: Programming + Data Structures</div>
+<div class="content">
+
+<div class="subsection" onclick="toggle(this)">Arrays & Strings</div>
+<div class="content">
 <table>
-<tr><th>Topic</th><th>Type</th><th>Importance</th><th>Difficulty</th></tr>
-<tr><td>Sorting & Searching</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Graphs</td><td><span class="tag core">CSE</span></td><td>High</td><td>Hard</td></tr>
-<tr><td>Dynamic Programming</td><td><span class="tag core">CSE</span></td><td>High</td><td>Hard</td></tr>
-<tr><td>Linear Algebra (core)</td><td><span class="tag common">Common</span></td><td>High</td><td>Hard</td></tr>
-<tr><td>Statistics</td><td><span class="tag da">DA</span></td><td>Medium</td><td>Moderate</td></tr>
+<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Arrays</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Strings</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
 </table>
 </div>
 
-<div class="section">
-<h2>🧪 Phase 4 (Months 10–11): Core CS</h2>
+<div class="subsection" onclick="toggle(this)">Linked List</div>
+<div class="content">
 <table>
-<tr><th>Topic</th><th>Type</th><th>Importance</th><th>Difficulty</th></tr>
-<tr><td>Digital Logic</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Operating Systems</td><td><span class="tag core">CSE</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>DBMS</td><td><span class="tag core">CSE</span></td><td>High</td><td>Easy</td></tr>
-<tr><td>Computer Networks</td><td><span class="tag core">CSE</span></td><td>High</td><td>Moderate</td></tr>
+<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Singly Linked List</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Doubly Linked List</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
 </table>
 </div>
 
-<div class="section">
-<h2>🤖 Phase 5 (Month 12): DA + Revision</h2>
+</div>
+
+<!-- PHASE 3 -->
+<div class="section" onclick="toggle(this)">⚙️ Phase 3: Algorithms</div>
+<div class="content">
 <table>
-<tr><th>Topic</th><th>Type</th><th>Importance</th><th>Difficulty</th></tr>
-<tr><td>Machine Learning</td><td><span class="tag da">DA</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>Regression, Classification</td><td><span class="tag da">DA</span></td><td>High</td><td>Moderate</td></tr>
-<tr><td>Clustering</td><td><span class="tag da">DA</span></td><td>Medium</td><td>Moderate</td></tr>
-<tr><td>Final Revision + Mock Tests</td><td><span class="tag common">Common</span></td><td>High</td><td>Hard</td></tr>
+<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Sorting Algorithms</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Greedy</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Dynamic Programming</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
 </table>
 </div>
 
 </body>
-</html>
+</html
