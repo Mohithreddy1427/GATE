@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>GATE Structured System</title>
+<title>GATE Master System</title>
 <style>
 body {font-family: Arial; background:#0f172a; color:white; padding:20px;}
 h1 {color:#38bdf8;}
-.section {background:#1e293b; padding:15px; margin:10px 0; border-radius:10px; cursor:pointer;}
-.subsection {background:#273449; padding:10px; margin:8px 0; border-radius:8px; cursor:pointer;}
-.content {display:none; margin-top:10px;}
-table {width:100%; border-collapse: collapse;}
+h2 {color:#22c55e;}
+table {width:100%; border-collapse: collapse; margin-bottom:25px;}
 th, td {border:1px solid #334155; padding:6px; text-align:center;}
 th {background:#334155;}
 .progress-container {background:#334155; border-radius:10px; overflow:hidden;}
@@ -27,14 +25,11 @@ th {background:#334155;}
 <p id="text">0% Completed</p>
 
 <script>
-function toggle(el){
-let c=el.nextElementSibling;
-c.style.display=c.style.display==="block"?"none":"block";
-}
+let boxes;
 
 function update(){
-let boxes=document.querySelectorAll("input");
-let checked=document.querySelectorAll("input:checked").length;
+boxes=document.querySelectorAll("input[type='checkbox']");
+let checked=document.querySelectorAll("input[type='checkbox']:checked").length;
 let percent=Math.round((checked/boxes.length)*100);
 document.getElementById("bar").style.width=percent+"%";
 document.getElementById("text").innerText=percent+"% Completed";
@@ -42,7 +37,7 @@ localStorage.setItem("data",JSON.stringify([...boxes].map(b=>b.checked)));
 }
 
 window.onload=()=>{
-let boxes=document.querySelectorAll("input");
+boxes=document.querySelectorAll("input[type='checkbox']");
 let saved=JSON.parse(localStorage.getItem("data"));
 if(saved){boxes.forEach((b,i)=>b.checked=saved[i]);}
 boxes.forEach(b=>b.addEventListener("change",update));
@@ -50,68 +45,36 @@ update();
 }
 </script>
 
-<!-- PHASE 1 -->
-<div class="section" onclick="toggle(this)">📘 Phase 1: Mathematics 1</div>
-<div class="content">
-
-<div class="subsection" onclick="toggle(this)">Linear Algebra</div>
-<div class="content">
+<!-- MATH 1 -->
+<h2>📘 Math 1 (Core)</h2>
 <table>
 <tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Sets, Relations, Functions</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Logic</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Combinatorics</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Probability</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 <tr><td>Matrices</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Eigenvalues & Eigenvectors</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Rank of Matrix</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>System of Linear Equations</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Eigenvalues</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 </table>
-</div>
 
-<div class="subsection" onclick="toggle(this)">Probability</div>
-<div class="content">
+<!-- PROGRAMMING -->
+<h2>💻 Programming + Data Structures</h2>
 <table>
 <tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
-<tr><td>Basic Probability</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Conditional Probability</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Bayes Theorem</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Random Variables</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>C Basics</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Arrays</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Linked List</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Stacks & Queues</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 </table>
-</div>
 
-</div>
-
-<!-- PHASE 2 -->
-<div class="section" onclick="toggle(this)">💻 Phase 2: Programming + Data Structures</div>
-<div class="content">
-
-<div class="subsection" onclick="toggle(this)">Arrays & Strings</div>
-<div class="content">
+<!-- ALGO -->
+<h2>⚙️ Algorithms</h2>
 <table>
 <tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
-<tr><td>Arrays</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Strings</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td>Sorting</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Greedy</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Dynamic Programming</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 </table>
-</div>
-
-<div class="subsection" onclick="toggle(this)">Linked List</div>
-<div class="content">
-<table>
-<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
-<tr><td>Singly Linked List</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Doubly Linked List</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-</table>
-</div>
-
-</div>
-
-<!-- PHASE 3 -->
-<div class="section" onclick="toggle(this)">⚙️ Phase 3: Algorithms</div>
-<div class="content">
-<table>
-<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
-<tr><td>Sorting Algorithms</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Greedy</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-<tr><td>Dynamic Programming</td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
-</table>
-</div>
 
 </body>
 </html
