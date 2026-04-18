@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GATE Master System</title>
+<title>GATE Ultimate System</title>
 <style>
 body {font-family: Arial; background:#0f172a; color:white; padding:20px;}
 h1 {color:#38bdf8;}
-h2 {color:#22c55e;}
+h2 {color:#22c55e; margin-top:30px;}
 table {width:100%; border-collapse: collapse; margin-bottom:25px;}
 th, td {border:1px solid #334155; padding:6px; text-align:center;}
 th {background:#334155;}
@@ -17,7 +17,7 @@ th {background:#334155;}
 
 <body>
 
-<h1>🚀 GATE CSE + DA Execution System</h1>
+<h1>🚀 GATE CSE + DA FULL EXECUTION SYSTEM</h1>
 
 <div class="progress-container">
 <div class="progress-bar" id="bar"></div>
@@ -25,19 +25,16 @@ th {background:#334155;}
 <p id="text">0% Completed</p>
 
 <script>
-let boxes;
-
 function update(){
-boxes=document.querySelectorAll("input[type='checkbox']");
+let boxes=document.querySelectorAll("input[type='checkbox']");
 let checked=document.querySelectorAll("input[type='checkbox']:checked").length;
 let percent=Math.round((checked/boxes.length)*100);
 document.getElementById("bar").style.width=percent+"%";
 document.getElementById("text").innerText=percent+"% Completed";
 localStorage.setItem("data",JSON.stringify([...boxes].map(b=>b.checked)));
 }
-
 window.onload=()=>{
-boxes=document.querySelectorAll("input[type='checkbox']");
+let boxes=document.querySelectorAll("input[type='checkbox']");
 let saved=JSON.parse(localStorage.getItem("data"));
 if(saved){boxes.forEach((b,i)=>b.checked=saved[i]);}
 boxes.forEach(b=>b.addEventListener("change",update));
@@ -45,35 +42,85 @@ update();
 }
 </script>
 
-<!-- MATH 1 -->
-<h2>📘 Math 1 (Core)</h2>
+<!-- APTITUDE -->
+<h2>🧠 General Aptitude</h2>
 <table>
-<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><th>Topic</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Quantitative Aptitude</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Verbal Ability</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Logical Reasoning</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+</table>
+
+<!-- MATH -->
+<h2>📘 Engineering Mathematics</h2>
+<table>
+<tr><th>Topic</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+
 <tr><td>Sets, Relations, Functions</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Logic</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Propositional Logic</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 <tr><td>Combinatorics</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Probability</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
 <tr><td>Matrices</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 <tr><td>Eigenvalues</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Linear Equations</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
+<tr><td>Limits</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Differentiation</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Integration</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
+<tr><td>Probability Basics</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Conditional Probability</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Bayes Theorem</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Random Variables</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 </table>
 
 <!-- PROGRAMMING -->
-<h2>💻 Programming + Data Structures</h2>
+<h2>💻 Programming</h2>
 <table>
-<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><th>Topic</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
 <tr><td>C Basics</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Arrays</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Linked List</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Stacks & Queues</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Pointers</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Structures</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
 </table>
 
-<!-- ALGO -->
+<!-- DATA STRUCTURES -->
+<h2>📦 Data Structures</h2>
+<table>
+<tr><th>Topic</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+<tr><td>Arrays</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Linked List</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Stacks</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Queues</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Trees</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>BST</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Heap</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Hashing</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+</table>
+
+<!-- ALGORITHMS -->
 <h2>⚙️ Algorithms</h2>
 <table>
-<tr><th>Chapter</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
-<tr><td>Sorting</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-<tr><td>Greedy</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><th>Topic</th><th>Video</th><th>Practice</th><th>PYQs</th><th>Rev1</th><th>Rev2</th></tr>
+
+<tr><td>Time Complexity</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Recurrence Relations</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
+<tr><td>Bubble Sort</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Merge Sort</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Quick Sort</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
+<tr><td>Greedy Algorithms</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
 <tr><td>Dynamic Programming</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
+<tr><td>BFS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>DFS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Dijkstra</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Bellman-Ford</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Floyd Warshall</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Kruskal</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+<tr><td>Prim</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+
 </table>
 
 </body>
